@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Student Marksheet App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Create Your Marksheet</h1>
+        <div class="grid">
+          <div>
+            <form id="marksForm" autocomplete="off">
+              <div class="row">
+                <div style="flex: 1">
+                  <label>Student Name</label>
+                  <input
+                    id="studentName"
+                    type="text"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div style="width: 110px">
+                  <label>Class</label>
+                  <input id="studentClass" type="text" placeholder="10th" />
+                </div>
+              </div>
+              <div class="row">
+                <div style="flex: 1">
+                  <label>Roll Number</label>
+                  <input id="roll" type="text" placeholder="Roll No." />
+                </div>
+                <div style="width: 130px">
+                  <label>Total Marks / Subject</label>
+                  <input id="maxMarks" type="number" value="100" min="1" />
+                </div>
+              </div>
+
+              <label style="margin-top: 26px; margin-bottom: 10px">Subjects & Obtained Marks</label>
+              
+              <!-- dynamic subject rows -->
+              <div class="subjects" id="subjectsBox"></div>
+
+              <div class="controls">
+                <button type="button" id="addSub" class="btn">
+                  + Add Subject
+                </button>
+                <button type="button" id="calc" class="btn">Calculate</button>
+                <button type="button" id="reset" class="btn ghost">
+                  Reset
+                </button>
+                <button type="button" id="exportCSV" class="btn ghost">
+                  Export CSV
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="right">
+            <div class="result">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <div>
+                  <strong id="resName">-</strong><br />
+                  <small id="resMeta">Class - Roll - </small>
+                </div>
+                <div style="text-align: right">
+                  <div id="grade" style="font-size: 18px">-</div>
+                  <small id="status" style="color: var(--muted)"></small>
+                </div>
+              </div>
+
+              <div class="stat">
+                <div>Total Obtained</div>
+                <div>
+                  <strong id="totalObt">0</strong> /
+                  <span id="totalMax">0</span>
+                </div>
+              </div>
+
+              <div class="stat">
+                <div>Percentage</div>
+                <div><strong id="percent">0%</strong></div>
+              </div>
+
+              <div style="margin-top: 10px">
+                <div class="bar" title="progress"><i id="progress"></i></div>
+              </div>
+
+              <div id="subTableWrap">
+                <!-- per-subject table -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+          Built with ❤️ — change grading rules or design as needed.
+        </footer>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
